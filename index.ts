@@ -8,6 +8,7 @@ import cors from 'cors';
 import { allowedMethodsHandler } from '@app/core/middlewares/allowed-methods-handler';
 import { notFoundHandler } from '@app/core/middlewares/not-found-handler';
 import { errorHandler } from '@app/core/middlewares/error-handler';
+import router from '@app/infrastructure/api/routes';
 import { Logger } from '@app/utils/logger';
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cors({ origin: '*' }));
 
 app.use(allowedMethodsHandler);
+app.use('/', router);
 app.use(notFoundHandler);
 app.use(errorHandler);
 

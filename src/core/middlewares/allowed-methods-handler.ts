@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { GenericError } from '@app/core/generic-error';
 import { StatusCodes } from 'http-status-codes';
 
-const ALLOWED_METHODS = ['POST'];
+const ALLOWED_METHODS = ['GET'];
 
 export const allowedMethodsHandler = (req: Request, res: Response, next: NextFunction) => {
   if (ALLOWED_METHODS.includes(req.method)) {
